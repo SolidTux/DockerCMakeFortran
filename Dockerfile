@@ -11,5 +11,6 @@ RUN sudo -u tmpuser bash -c 'cd ~ && git clone https://aur.archlinux.org/pacaur.
 RUN sudo -u tmpuser bash -c 'EDITOR=vim pacaur -S --noconfirm --noedit mingw-w64-lapack'
 RUN userdel tmpuser
 RUN pacman -Scc --noconfirm
+RUN texhash
 RUN updmap-sys --syncwithtrees
 RUN updmap-sys
