@@ -2,7 +2,8 @@ FROM base/archlinux:latest
 
 RUN pacman -Syu --noconfirm
 RUN pacman -S --noconfirm base-devel
-RUN pacman -S --noconfirm make git cmake gcc gcc-fortran mingw-w64-binutils mingw-w64-crt mingw-w64-gcc mingw-w64-headers mingw-w64-winpthreads doxygen graphviz texlive-core texlive-fontsextra texlive-science lapack sudo vim openmpi python-numpy
+RUN pacman -S --noconfirm make git cmake gcc gcc-fortran mingw-w64-binutils mingw-w64-crt mingw-w64-gcc mingw-w64-headers mingw-w64-winpthreads doxygen graphviz texlive-core texlive-fontsextra texlive-science lapack sudo vim openmpi python-numpy python-matplotlib
+RUN echo "backend: Agg" >> /usr/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc
 RUN useradd -m tmpuser
 RUN echo 'tmpuser ALL=NOPASSWD: ALL' | tee -a /etc/sudoers
 RUN sudo -u tmpuser gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
