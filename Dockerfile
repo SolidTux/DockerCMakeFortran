@@ -2,7 +2,7 @@ FROM fedora:latest
 
 RUN dnf upgrade -y --refresh
 RUN dnf install -y @development-tools
-RUN dnf install -y mingw64-gcc-c++ mingw64-gcc-gfortran cmake doxygen texlive graphviz lapack-devel openmpi python3-numpy python3-matplotlib fftw-devel boost-devel gsl-devel libtiff-devel eigen3-devel python3-devel yaml-cpp-devel python3-yaml python3-PyYAML PyYAML
+RUN dnf install -y mingw64-gcc-c++ mingw64-gcc-gfortran cmake doxygen texlive graphviz lapack-devel openmpi python3-numpy python3-matplotlib fftw-devel boost-devel gsl-devel libtiff-devel eigen3-devel python3-devel yaml-cpp-devel python3-yaml python3-PyYAML PyYAML latexmk
 RUN dnf install -y gcc-c++
 RUN dnf clean all -y
 RUN git clone https://github.com/Reference-LAPACK/lapack.git; cd lapack; mkdir build; cd build; cmake -DCMAKE_SYSTEM_NAME=Windows -DCMAKE_C_COMPILER=x86_64-w64-mingw32-gcc -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_RC_COMPILER=x86_64-w64-mingw32-windres -DCMAKE_Fortran_COMPILER=x86_64-w64-mingw32-gfortran -DCMAKE_FIND_ROOT_PATH=/usr/x86_64-w64-mingw32 ..; make install; cd /; rm -R lapack
