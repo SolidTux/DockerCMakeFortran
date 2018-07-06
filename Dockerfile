@@ -12,4 +12,5 @@ RUN cd BornAgain/build; make
 RUN cd BornAgain/build; make install
 RUN rm -R BornAgain
 RUN cat /usr/local/bin/thisbornagain.sh >> /etc/profile
+RUN echo "module load mpi" >> /etc/profile
 RUN echo "backend: Agg" >> /usr/share/matplotlib/mpl-data/matplotlibrc
